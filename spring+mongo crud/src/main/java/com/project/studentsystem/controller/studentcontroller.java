@@ -77,7 +77,11 @@ public class studentcontroller {
       }
     }
     
-    
+     //get by request parameter (enter /param?id= )
+    @GetMapping("/param")
+    public Optional<student> parameterview2(@RequestParam String id) {
+    	 return studentrepo.findById(id);
+    }
     
     
     
