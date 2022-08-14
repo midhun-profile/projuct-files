@@ -52,7 +52,7 @@ public class studentcontroller {
     
     //update data with id
     @PutMapping("/update/{id}")
-    public student updateTutorial(@PathVariable("id") String id, @RequestBody student tutorial) {
+    public student updatestudent(@PathVariable("id") String id, @RequestBody student tutorial) {
     	Optional<student> tutorialData = studentrepo.findById(id);
     	  if (tutorialData.isPresent()) {
     		  student var = tutorialData.get();
@@ -68,7 +68,7 @@ public class studentcontroller {
     
     //get data linked with a given id
     @GetMapping("/student/{id}")
-    public ResponseEntity<student> getTutorialById(@PathVariable("id") String id) {
+    public ResponseEntity<student> getstudentById(@PathVariable("id") String id) {
       Optional<student> variable = studentrepo.findById(id);
       if (variable.isPresent()) {
         return new ResponseEntity<>(variable.get(), HttpStatus.OK);
@@ -79,7 +79,7 @@ public class studentcontroller {
     
      //get by request parameter (enter /param?id= )
     @GetMapping("/param")
-    public Optional<student> parameterview2(@RequestParam String id) {
+    public Optional<student> parameterview(@RequestParam String id) {
     	 return studentrepo.findById(id);
     }
     
